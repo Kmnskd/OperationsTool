@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+{% block head %}
+    <title>ios testflight upload</title>
+{% endblock %}
+
+{% block task_name %}
+    <li>
+        <a class="nav-link" href="#">自动化测试环境部署</a>
+    </li>
+    {% endblock %}
+
+{% block nav %}
+<ul class="navbar-nav ml-auto">
+    <li class="nav-item">
+        <a class="nav-link" href="http://on.test/jenkins/view/gitlab/job/gitlab/job/test/job/feature_temp/" target="_blank">部署结果查询</a>
+    </li>
+</ul>
+{% endblock %}
+
+
+{% block body %}
+<div class="container" style="margin-top: 5%">
+    <div id="toast" class="alert alert-success alert-dismissible hide" role="alert">
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      正在部署，任务进度请点击上传结果查询~
+    </div>
+    <div class="row">
+        <div class="col"></div>
+        <div class="col">
+            <input type="text" name="commit" class="form-control" placeholder="commit" />
+            <select name="environment" class="form-control">
+                <option value="feature">feature</option>
+                <option value="dev">dev</option>
+                <option value="prd">prd</option>
+                <option value="ack_feature">ack_feature</option>
+                <option value="ack_hope">ack_hope</option>
+                <option value="ack_grace">ack_grace</option>
+                <option value="ack_peace">ack_peace</option>
+                <option value="ack_pearl">ack_pearl</option>
+                <option value="ack_passion">ack_passion</option>
+                <option value="ack_eureka">ack_eureka</option>
+                <option value="ack_apple">ack_apple</option>
+                <option value="ack_orange">ack_orange</option>
+                <option value="ack_peach">ack_peach</option>
+                <option value="ack_bloom">ack_bloom</option>
+            </select>
+            <button id="featureDeploy" class="btn ml-auto" style="float:right">部署</button>
+        </div>
+        <div class="col"></div>
+    </div>
+</div>
+{% endblock %}

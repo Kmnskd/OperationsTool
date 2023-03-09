@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+    <script src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/popper.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/send.js') }}"></script>
+    {% block head %}
+        <title>基础模板</title>
+    {% endblock %}
+    <style>
+    .hide{
+        display:none
+    }
+    .show{
+        display:block
+    }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-sm bg-light">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" href="/">首页</a>
+            </li>
+        </ul>
+      <ul class="navbar-nav">
+           <li class="nav-item">
+               {% block task_name %}
+               {% endblock %}
+
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+                    工具选择
+                  </a>
+                  <div class="dropdown-menu">
+                    <a class="dropdown-item" href="/upload/upload_package">iOS TestFlight发布</a>
+                    <a class="dropdown-item" href="/rollout/version_rollout">ZONE版本回滚</a>
+                    <a class="dropdown-item" href="/feature/feature_deploy">自动化测试环境部署</a>
+                    <a class="dropdown-item" href="/feature/feature_deploy">ldap</a>
+                  </div>
+                </li>
+              </ul>
+
+        {% block nav %}
+        {% endblock %}
+    </nav>
+
+    {% block body %}
+        <p>基础模板内容</p>
+    {% endblock %}
+</body>
+</html>

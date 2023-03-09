@@ -1,0 +1,83 @@
+{% extends "base.html" %}
+{% block head %}
+<title>ios testflight upload</title>
+{% endblock %}
+
+{% block nav %}
+<ul class="navbar-nav ml-auto">
+    <li class="nav-item">
+        <a class="nav-link" href="http://on.test/jenkins/job/testFlightUpload" target="_blank">回滚结果查询</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="/auth/logout">退出</a>
+    </li>
+</ul>
+{% endblock %}
+
+{% block task_name %}
+    <li>
+        <a class="nav-link" href="#">ZONE版本回滚</a>
+    </li>
+    {% endblock %}
+
+{% block body %}
+<div class="container" style="margin-top: 5%">
+    <div id="toast" class="alert alert-success alert-dismissible hide" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span
+                aria-hidden="true">&times;</span></button>
+        正在上传，任务进度请点击上传结果查询~
+    </div>
+    <div class="row">
+        <div class="col"></div>
+        <div class="col">
+            <form action="/rollout/version_rollout" method="post">
+                <p>
+                    <div>选择环境：</div>
+                    <select id="environment" name="environment" class="form-control">
+                        <option value="dev">开发环境</option>
+                        <option value="test">测试环境</option>
+                        <option value="prd">生产环境</option>
+                        <option value="feature">自动化测试环境</option>
+                    </select>
+                </p>
+                <p>
+                    <div>后端版本：</div>
+                    <select id="cloud_version" name="cloud_version" class="form-control">
+                    </select>
+                </p>
+                <p>
+                    <div>前端版本：</div>
+                    <select id="frontend_version" name="frontend_version" class="form-control">
+                    </select>
+                </p>
+                <button type="submit" id="submitBtn" class="btn ml-auto" style="float:right">回退到该版本</button>
+<!--                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#isModal">modal</button>-->
+
+<!--&lt;!&ndash; Modal &ndash;&gt;-->
+<!--<div class="modal fade" id="isModal" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">-->
+<!--  <div class="modal-dialog">-->
+<!--    <div class="modal-content">-->
+<!--      <div class="modal-header">-->
+<!--        <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>-->
+<!--        <button type="button" class="close" data-dismiss="modal" aria-label="Close">-->
+<!--          <span aria-hidden="true">&times;</span>-->
+<!--        </button>-->
+<!--      </div>-->
+<!--      <div class="modal-body">-->
+<!--        ...-->
+<!--      </div>-->
+<!--      <div class="modal-footer">-->
+<!--        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>-->
+<!--        <button type="button" class="btn btn-primary">Understood</button>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--</div>-->
+            </form>
+        </div>
+
+        <div class="col"></div>
+
+    </div>
+</div>
+{% endblock %}

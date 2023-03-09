@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+    <script src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/popper.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/send.js') }}"></script>
+    <title>ldap自主密码修改</title>
+    <style>
+    .hide{
+        display:none
+    }
+    .show{
+        display:block
+    }
+    </style>
+</head>
+<body>
+<div id="page_container">
+
+
+    <div class="container" style="margin-top: 5%">
+        <div class="row">
+            <div class="col"></div>
+            <div class="col">
+                <form id="userForm" method="post">
+                    <input type="text" name="username" class="form-control" placeholder="用户名"/>
+                    <input type="text" name="current_passwd" class="form-control" placeholder="当前密码"/>
+                    <input type="text" name="new_passwd" class="form-control" placeholder="新密码"/>
+                    <input type="text" name="new_passwd_again" class="form-control" placeholder="确认新密码"/><br/>
+                </form>
+                <div id="errMsgDiv" style="color: #dc3545; font-size: 12px; display: none">
+                    <p id="errMsg" class="errMsg"></p>
+			        <p id="sucMsg" class="sucMsg"></p>
+                </div>
+                <div style="overflow: hidden; margin: 10px auto; margin-top: 0px;">
+                    <button type="button" class="btn ml-auto" style="float:left" data-toggle="modal" data-target="#myModal">忘记密码</button>
+                    <button id="updatePasswd" class="btn ml-auto" style="float:right">修改密码</button>
+                </div>
+            </div>
+
+            <div class="col"></div>
+        </div>
+    </div>
+
+    <div class="container" style="margin-top: 5%">
+        <div class="row">
+            <div class="col"></div>
+            <div class="col">
+                <p style="color:#dc3545;">
+                    <tr>
+                        <td>温馨提示：</td>
+                        <td>密码至少需要8个字符，并且最好包含数字，大小写字母与特殊符号仅包含如!@#$%^~&*()-_=+{};:<,.>?[]* ，不能和历史密码相同。</td>
+                    </tr>
+                </p>
+            </div>
+
+            <div class="col"></div>
+        </div>
+    </div>
+
+    <!-- 模态框（Modal） -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <form id="nameForm" method="post">
+                        <input type="text" name="username" class="form-control" placeholder="用户名"/>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                            <button id="resetPasswd" type="button" class="btn btn-primary">重置密码</button>
+                        </div>
+                      </form>
+                    </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
